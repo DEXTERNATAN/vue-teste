@@ -1,19 +1,33 @@
 <template>
-	<div class="container">
-		<router-link to="/">Voltar</router-link>
-		<h1 class="page-header">Detalhe Usuário
-			<span class="pull-right">
-				<router-link class="btn btn-primary" v-bind:to="'/editarUsuario/' + usuario.id">Editar</router-link>
-				<button class="btn btn-danger" v-on:click="DeletaUsuario(usuario.id)">Apagar</button>
-			</span>
-		</h1>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{usuario.nome}}</li>
-			<li class="list-group-item">
-				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{usuario.nome}}</li>
-		</ul>
-	</div>
+	<main>
+        <div class="page-header">
+            <div class="container">
+				<h1 class="">Detalhes do usuário</h1>
+			</div>
+		</div>
+        <div class="container">
+            <div class="box">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{usuario.nome}}</li>
+					<li class="list-group-item">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{usuario.nome}}</li>
+				</ul>
+				<router-link class="btn btn-default" to="/">
+					<span class="fa fa-chevron-left" aria-hidden="true"></span>
+					Voltar
+				</router-link>
+				<router-link class="btn btn-primary" v-bind:to="'/editarUsuario/' + usuario.id">
+					<span class="fa fa-pencil" aria-hidden="true"></span>
+					Editar
+				</router-link>
+				<button class="btn btn-danger" v-on:click="DeletaUsuario(usuario.id)">
+					<span class="fa fa-times" aria-hidden="true"></span>
+					Apagar
+				</button>
+			</div>
+		</div>
+	</main>
 </template>
 
 <script>

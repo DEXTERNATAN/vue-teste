@@ -1,12 +1,26 @@
 <template>
-    <div class="container">
-        <Alert v-if="alert" v-bind:message="alert"></Alert>
-        <h1 class="page-header">Gerenciamento de usuários</h1>
-        <input class="form-control" placeholder="Enter Last Name" v-model="SearchFilter">
-        <br>
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <table class="table table-striped">
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <div class="pull-right">
+                    <router-link to="/novo" class="btn btn-primary">
+                        <span class="fa fa-plus" aria-hidden="true"></span>
+                        Novo Usuário
+                    </router-link>
+                </div>
+                <h1 class="">Gerenciamento de usuários</h1>
+            </div>
+        </div>
+        <div class="container">
+
+            <Alert v-if="alert" v-bind:message="alert"></Alert>
+
+            <div class="box">
+                <div class="form-group">
+                    <label for="search" class="sr-only">Pesquisar</label>
+                    <input id="search" class="form-control" placeholder="Pesquisar usuário" v-model="SearchFilter">
+                </div>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -17,8 +31,8 @@
                         <tr v-for="(us, index) in filterBy(usuarios, SearchFilter)" v-bind:key="index">
                             <td>{{us.nome}}</td>
                             <td class="is-icon">
-                                <router-link class="btn btn-success" v-bind:to="'/detalhe/'+us.id">
-                                    <i class="fa fa-plus-circle"></i>
+                                <router-link     v-bind:to="'/detalhe/'+us.id" title="Visualizar">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
                                     </i>
                                 </router-link>
                             </td>
@@ -27,7 +41,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 <script>
 

@@ -1,18 +1,29 @@
 <template>
-	<div class="add container">
-		<Alert v-if="alert" v-bind:message="alert"></Alert>
-		<h1 class="page-header">Novo Usuário</h1>
-		<form method="post" v-on:submit="addUsuario">
-			<div class="well">
-				<h4>Detalhes do usuário</h4>
-				<div class="form-group">
-					<label>Nome</label>
-					<input type="text" class="form-control" placeholder="Nome do usuário" v-model="usuario.nome">
-				</div>
+	<main>
+	    <div class="page-header">
+			<div class="container">
+				<h1 class="">Novo Usuário</h1>
 			</div>
-			<button type="submit" class="btn btn-primary" name="button">Enviar</button>
-		</form>
-	</div>
+		</div>
+	    <div class="container">
+
+			<Alert v-if="alert" v-bind:message="alert"></Alert>
+
+			<div class="box">
+				<form method="post" v-on:submit="addUsuario">
+					<!-- <p>Detalhes do usuário</p> -->
+					<div class="form-group">
+						<label for="user">Nome</label>
+						<input id="user" type="text" class="form-control" placeholder="Nome do usuário" v-model="usuario.nome">
+					</div>
+					<button type="submit" class="btn btn-primary" name="button">
+						Enviar
+                        <span class="fa fa-check" aria-hidden="true"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</main>
 </template>
 
 <script>
