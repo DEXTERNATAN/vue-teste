@@ -12,9 +12,9 @@
             </div>
         </div>
         <div class="container">
-
+    
             <Alert v-if="alert" v-bind:message="alert"></Alert>
-
+    
             <div class="box">
                 <div class="form-group">
                     <label for="search" class="sr-only">Pesquisar</label>
@@ -31,10 +31,18 @@
                         <tr v-for="(us, index) in filterBy(usuarios, SearchFilter)" v-bind:key="index">
                             <td>{{us.nome}}</td>
                             <td class="is-icon">
-                                <router-link     v-bind:to="'/detalhe/'+us.id" title="Visualizar">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                <router-link class="btn btn-link" v-bind:to="'/detalhe/'+us.id" title="Visualizar">
+                                    <i class="fa fa-lg fa-eye" aria-hidden="true"></i>
                                     </i>
                                 </router-link>
+                                <router-link class="btn btn-link" v-bind:to="'/editarUsuario/' + us.id">
+                                    <i class="fa fa-lg fa-pencil" aria-hidden="true"></i>
+                                    </i>
+                                </router-link>
+                                <a class="btn btn-link" v-on:click="DeletaUsuario(us.id)">
+                                    <span class="fa fa-lg fa-trash" aria-hidden="true"></span>
+                                </a>
+    
                             </td>
                         </tr>
                     </tbody>
@@ -64,6 +72,12 @@ export default {
                 .catch(e => {
                     this.errors.push(e)
                 })
+        }, DeletaUsuario(id) {
+            axios.delete('http://localhost:3000/api/usuarios/' + id).then(response => {
+                console.log(this.$route.params.id);
+                //this.$router.push({ path: '/', query: { alert: 'Usuário excluído com sucesso!' } });
+                this.alert = 'Usuário excluído com sucesso!';
+            });
         },
         filterBy(list, value) {
             value = value.charAt(0).toUpperCase() + value.slice(1);

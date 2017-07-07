@@ -17,7 +17,8 @@ const router = new VueRouter({
     { path: '/novo', component: FormAddUsuarios },
     { path: '/sobre', component: Sobre },
     { path: '/detalhe/:id', component: Detalhe },
-    { path: '/editarUsuario/:id', component: EditarUsuario }
+    { path: '/editarUsuario/:id', component: EditarUsuario },
+    { path: '/deletarUsuario/:id', component: ListaUsuarios }
   ]
 })
 

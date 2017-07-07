@@ -58,15 +58,12 @@ let ID = 10;
        res.json(usuarios[index]);
    })
    .delete((req, res) =>{
-       console.log(req.params.id);
        let index = usuarios.findIndex((u)=>{ return u.id == req.params.id; });
-       
+       console.log('index',index);
        // delete retirado porque gerava inconsistencia no object
        //delete usuarios[index]; 
-       Array.prototype.remove = function(index){ this.splice(index,1); };
-       usuarios.remove(index);
+       usuarios.splice(index,1);
        
-
        res.json({}).status(204);
    });
 
