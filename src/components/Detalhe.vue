@@ -9,16 +9,14 @@
             <div class="box">
 				<ul class="list-group">
 					<li class="list-group-item">
-						<span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{usuario.nome}}</li>
-					<li class="list-group-item">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{usuario.nome}}</li>
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{usuario.nome}}</li>
 				</ul>
 				<router-link class="btn btn-default" to="/">
 					<span class="fa fa-chevron-left" aria-hidden="true"></span>
 					Voltar
 				</router-link>
 				<router-link class="btn btn-primary" v-bind:to="'/editarUsuario/' + usuario.id">
-					<span class="fa fa-pencil" aria-hidden="true"></span>
+					<span class="fa fa-person" aria-hidden="true"></span>
 					Editar
 				</router-link>
 				<button class="btn btn-danger" v-on:click="DeletaUsuario(usuario.id)">

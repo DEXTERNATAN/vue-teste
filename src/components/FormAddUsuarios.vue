@@ -41,7 +41,7 @@ export default {
 	methods: {
 		addUsuario(e) {
 			if (!this.usuario.nome) {
-				this.aler = 'Campo nome Obrigatório';
+				this.alert = 'Campo nome Obrigatório';
 			} else {
 
 				let novoUsuario = {

@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(us, index) in filterBy(usuarios, SearchFilter)" v-bind:key="index">
+                        <tr v-for="(us, index) in filterBy(orderedUsers, SearchFilter)" v-bind:key="index">
                             <td>{{us.nome}}</td>
                             <td class="is-icon">
                                 <router-link class="btn btn-link" v-bind:to="'/detalhe/'+us.id" title="Visualizar">
@@ -54,6 +54,7 @@
 <script>
 
 import axios from 'axios';
+import _ from 'lodash'
 import Alert from '../components/Alert.vue'
 
 export default {
@@ -74,9 +75,9 @@ export default {
                 })
         }, DeletaUsuario(id) {
             axios.delete('http://localhost:3000/api/usuarios/' + id).then(response => {
-                console.log(this.$route.params.id);
-                //this.$router.push({ path: '/', query: { alert: 'Usuário excluído com sucesso!' } });
+                console.log(id);
                 this.alert = 'Usuário excluído com sucesso!';
+                this.type = 'success';
             });
         },
         filterBy(list, value) {
@@ -94,6 +95,11 @@ export default {
     },
     updated: function () {
         this.BuscaUsuario();
+    },
+    computed: {
+        orderedUsers: function () {
+            return _.orderBy(this.usuarios, 'nome')
+        }
     },
     components: {
         Alert

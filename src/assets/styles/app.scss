@@ -77,6 +77,7 @@ a {
 .box {
   border-top: 5px solid $primary;
   background: #fff;
+  margin: 0 0 20px;
   padding: 20px;
 }
 
@@ -84,10 +85,6 @@ a {
 .footer {
   background-color: #fff;
   padding: 10px 0;
-
-  p {
-    margin: 0;
-  }
 }
 
 // alertas
@@ -179,6 +176,14 @@ a {
     &:focus {
       background-color: darken($danger, 10);
       border-color: darken($danger, 10);
+    }
+  }
+
+  &-link {
+    color: $primary;
+    &:hover,
+    &:focus {
+      color: darken($primary, 10);
     }
   }
 }
