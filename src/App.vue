@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <div class="header">
+    <header class="header">
       <HeaderPages></HeaderPages>
-    </div>
-    <div class="container">
-      <router-view></router-view>    
-    </div>
-    <div class="footer">
+    </header>
+    <router-view></router-view>
+    <footer class="footer">
       <FooterPages></FooterPages>
-    </div>
+    </footer>
   </div>
 </template>
 
